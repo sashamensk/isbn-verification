@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringVerification", "StringVerification\StringVerification.csproj", "{F49454E3-B3A3-4876-80D5-E0055C475AFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringVerification.Tests", "StringVerification.Tests\StringVerification.Tests.csproj", "{973D54CB-C780-4101-B2C8-54DB54965A70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F49454E3-B3A3-4876-80D5-E0055C475AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F49454E3-B3A3-4876-80D5-E0055C475AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F49454E3-B3A3-4876-80D5-E0055C475AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F49454E3-B3A3-4876-80D5-E0055C475AFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{973D54CB-C780-4101-B2C8-54DB54965A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{973D54CB-C780-4101-B2C8-54DB54965A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{973D54CB-C780-4101-B2C8-54DB54965A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{973D54CB-C780-4101-B2C8-54DB54965A70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
