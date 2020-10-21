@@ -20,6 +20,15 @@ namespace StringVerification.Tests
             Assert.IsTrue(IsValid(number));
         }
 
+        [TestCase("----3-5--98-21508-8")]
+        [TestCase("3-5-98-21507-X")]
+        [TestCase("35A98-2150----88")]
+        [TestCase("3-5982yb1507-X")]
+        public void IsValid_InvalidSymbols_Isbn_IsNotValid(string number)
+        {
+            Assert.IsTrue(IsValid(number));
+        }
+
         [TestCase("3-598-21508-9")]
         [TestCase("3-598-21507-A")]
         [TestCase("3-598-P1581-X")]
