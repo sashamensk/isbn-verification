@@ -24,6 +24,12 @@ namespace StringVerification.Tests
         [TestCase("3-5-98-21507-X")]
         [TestCase("35A98-2150----88")]
         [TestCase("3-5982yb1507-X")]
+        [TestCase("35982yb1507gX")]
+        [TestCase("---359821507X")]
+        [TestCase("359821507---X")]
+        [TestCase("359821507--FX")]
+        [TestCase("359821507--XX")]
+        [TestCase("359X821507--X")]
         public void IsValid_InvalidSymbols_IsbnIsNotValid(string number)
         {
             Assert.IsFalse(IsValid(number));
