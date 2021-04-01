@@ -12,7 +12,60 @@ namespace StringVerification
         /// <exception cref="ArgumentException">Thrown if number is null or empty or whitespace.</exception>
         public static bool IsValid(string number)
         {
-            throw new NotImplementedException("You need to implement this method.");
-        }
+            if (string.IsNullOrWhiteSpace(number))
+            {
+                throw new ArgumentException($"{nameof(number)} is null or whitespace");
+            }
+
+            int count = 10, multipleOfNumbers = 0, currentNumber, i = 0;
+            string numberToCheck;
+            string lastNumber = number.Substring(number.Length - 1);
+            bool isNumeric;
+
+            for (; i < number.Length; i++)
+            {
+                numberToCheck = number.Substring(i, 1);
+                isNumeric = int.TryParse(numberToCheck, out currentNumber);
+                if (isNumeric)
+                {
+                    multipleOfNumbers += currentNumber * count;
+                    count--;
+                }
+                else
+                {
+                    if (numberToCheck == "-")
+                    {
+                        continue;
+                    }
+
+                    return false;
+                }
+
+                if (count == 1)
+                {
+                    break;
+                }
+            }
+
+            if (count != 1)
+            {
+                return false;
+            }
+
+            if (lastNumber == "X")
+            {
+                lastNumber = "10";
+            }
+
+            int.TryParse(lastNumber, out currentNumber);
+            if (11 - (multipleOfNumbers % 11) == currentNumber)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }       
     }
 }
