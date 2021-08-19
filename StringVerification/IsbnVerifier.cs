@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace StringVerification
 {
@@ -17,55 +18,50 @@ namespace StringVerification
                 throw new ArgumentException($"{nameof(number)} is null or whitespace");
             }
 
-            int count = 10, multipleOfNumbers = 0, currentNumber, i = 0;
-            string numberToCheck;
-            string lastNumber = number.Substring(number.Length - 1);
-            bool isNumeric;
+            string str = number;
+            List<int> list = new List<int>();
+            int num;
 
-            for (; i < number.Length; i++)
+            for (int i = 0; i < number.Length; i++)
             {
-                numberToCheck = number.Substring(i, 1);
-                isNumeric = int.TryParse(numberToCheck, out currentNumber);
-                if (isNumeric)
+                if (int.TryParse(str[i].ToString(), out num))
                 {
-                    multipleOfNumbers += currentNumber * count;
-                    count--;
+                    list.Add(num);
+                }
+                else if ((i == 1 || i == 5 || i == 11) && str[i] == '-')
+                {
+                    continue;
+                }
+                else if (i == str.Length - 1 && str[i] == 'X')
+                {
+                    list.Add(10);
                 }
                 else
                 {
-                    if (numberToCheck == "-")
-                    {
-                        continue;
-                    }
-
                     return false;
-                }
-
-                if (count == 1)
-                {
-                    break;
                 }
             }
 
-            if (count != 1)
+            if (list.Count != 10)
             {
                 return false;
             }
 
-            if (lastNumber == "X")
+            int checkSum = 0;
+            int index = 10;
+
+            for (int i = 0; i < list.Count; i++)
             {
-                lastNumber = "10";
+                checkSum += list[i] * index;
+                index--;
             }
 
-            int.TryParse(lastNumber, out currentNumber);
-            if (11 - (multipleOfNumbers % 11) == currentNumber)
+            if (checkSum % 11 == 0)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }       
     }
 }
